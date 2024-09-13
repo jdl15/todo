@@ -1,0 +1,94 @@
+.todo-app{
+    text-align: center;
+}
+
+h1{
+    margin-top: 80px;
+    font-size: 30px;
+
+}
+
+/* todolist.js */
+.todo-input{
+    width: 40%; /* Set width of input container */
+    height: 40px; /* Set height of input container */
+    margin: 0 auto; /* Center input container */
+    /* justify-content: space-; center children horizontally */
+    display: flex;
+    /* background-color: blueviolet; */
+}
+
+.todo-input input {
+    flex: 4; /* Input takes 4 parts of the available space */
+    border: 1px solid #ddd; /* Light border for input */
+    border-right: none; /* Remove right border to connect with button */
+    border-radius: 12px 0 0 12px; /* Rounded left corners for input */
+    margin: 0; /* Ensure no default margin */
+    background: rgb(210, 205, 205); /* Light gray background color */
+    padding-left: 10px;
+}
+  
+.todo-input button {
+    flex: 1; /* Button takes 1 part of the available space */
+    border: 1px solid #ddd; /* Match border with input */
+    border-left: none; /* Remove left border to connect with input */
+    background: #ffffff; /* Green background color */
+    border-radius: 0 12px 12px 0; /* Rounded right corners for button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin: 0; /* Ensure no default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* todoitem.js */
+.todo-item {
+    margin: 20px auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    background-color: rgb(210, 205, 205);
+    border-radius: 30px;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    color: rgb(112, 108, 108);
+  }
+
+.todo-item input {
+    flex: 3;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.item-text{
+    cursor: pointer;
+}
+
+.todo-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    color: #000;
+}
+
+/* todoitem.js */
+.todo-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer; /* Make the cursor a pointer */
+}
+
+.todo-item button:hover {
+    background-color: white; /* Change background to white on hover */
+    border-radius: 5px; /* Optional: Add rounded corners for the hover state */
+}
+
