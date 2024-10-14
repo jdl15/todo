@@ -26,7 +26,7 @@ const TodoList = ({ todos, addTodo, toggleTodo, editTodo, deleteTodo }) => {
       </div>
       {todos.map(todo => (
         <TodoItem
-          key={todo.id}
+          key={todo._id}
           todo={todo}
           toggleTodo={toggleTodo}
           editTodo={editTodo}
