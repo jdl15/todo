@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import TodoList from './component/todolist';
 import Login from './component/login';
 import Register from './component/register';
@@ -9,15 +9,7 @@ const Todo = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // track user authentication
   const [showLogin, setShowLogin] = useState(true); // show login form
 
-  useEffect(() => {
-    const token = localStorage.getItem('token'); // get token from local storage
-    if (token) {
-      setIsAuthenticated(true);
-      fetchTodos(token); // fetch tasks after login
-    }
-  }, []);
-
-  const fetchTodos = async (token) => {
+  const fetchTodos = useCallback(async (token) => {
     try{
       const response = await fetch('http://localhost:3000/tasks', {
         method: 'GET',
@@ -25,6 +17,10 @@ const Todo = () => {
           'Authorization': `Bearer ${token}`,
         },
       });
+      if(response.status === 401 || response.status === 400){
+        handleLogout();
+        throw new Error('Please login again');
+      }
       if(!response.ok){
         throw new Error('Error fetching');
       }
@@ -34,7 +30,15 @@ const Todo = () => {
     } catch (error){
       console.error('Error fetching: ', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // get token from local storage
+    if (token) {
+      setIsAuthenticated(true);
+      fetchTodos(token); // fetch tasks after login
+    }
+  }, [fetchTodos]);
 
   const addTodo = async(text) => {
     const token = localStorage.getItem('token');
@@ -127,6 +131,12 @@ const Todo = () => {
     localStorage.setItem('token', token); // save token to local storage
     setIsAuthenticated(true);
     fetchTodos(token); // fetch tasks after login
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // remove token from local storage
+    setIsAuthenticated(false);
+    setShowLogin(true);
   }
 
   return (
