@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import TodoList from './component/todolist';
 import Login from './component/login';
 import Register from './component/register';
-import './style.css';
+import './style/style.css';
 
 const Todo = () => {
   const [todos, setTodos] = useState([]);
@@ -127,6 +127,10 @@ const Todo = () => {
     }
   };
 
+  const handleRegister = () => {
+    setShowLogin(true);
+  };
+
   const handleLogin = (token) => {
     localStorage.setItem('token', token); // save token to local storage
     setIsAuthenticated(true);
@@ -146,7 +150,7 @@ const Todo = () => {
         <div>
           {showLogin ? (
             <Login onLogin = {handleLogin} toggle = {() => setShowLogin(false)} />) : 
-            (<Register onRegister={() => setIsAuthenticated(true)} toggle = {() => setShowLogin(true)} />)}
+            (<Register onRegister={handleRegister} toggle = {() => setShowLogin(true)} />)}
         </div>) : (
             <TodoList
               todos={todos}

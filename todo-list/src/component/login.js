@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../style/loginPage.css';
 
 const Login = ({ onLogin, toggle }) => {
     const [username, setUsername] = useState('');
@@ -27,24 +28,25 @@ const Login = ({ onLogin, toggle }) => {
     return (
         <div>
             <h2>Login</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className='login-form'>
                 <input
                     type="text"
                     placeholder="Username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
+                    className='login-text'
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    className='login-text'
                 />
-                <button type='submit'>Login</button>
+                <button type='submit' className='login-button'>Login</button>
             </form>
             {/* link to register page */}
-            <p>No account?{' '}<span className='link' onClick={toggle}>Register</span>
-            </p>
+            <p>No account?{' '}<span className='link' onClick={toggle}>Register</span></p>
         </div>
     );
 };

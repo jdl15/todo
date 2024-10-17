@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TodoItem from './todoitem';
-import '../style.css';
+import '../style/style.css';
 
 const TodoList = ({ todos, addTodo, toggleTodo, editTodo, deleteTodo }) => {
   const [inputValue, setInputValue] = useState('');

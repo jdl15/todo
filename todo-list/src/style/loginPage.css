@@ -1,0 +1,35 @@
+.link{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #2e89ea;
+}
+
+.login-form, .register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-text, .register-text{
+    width: 400px;
+    height: 25px;
+    /* if not set border to 0, it will show another bottom border line 
+    that will overlap with the previous one */
+    border: 0;
+    /* remove the blue square around it */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-button, .register-button{
+    background: #c0d3d1;
+    border: 2px solid transparent;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 15px;
+    padding: 10px 25px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: all 0.05s ease-in-out; 
+}

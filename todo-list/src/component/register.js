@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../style/loginPage.css';
 
 const Register = ({ onRegister, toggle }) => {
     const [username, setUsername] = useState('');
@@ -38,11 +39,11 @@ const Register = ({ onRegister, toggle }) => {
 return(
     <div>
         <h2>Register</h2>
-        <form onSubmit = {handleRegister}>
-            <input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <input type="password" placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-            <button type='submit'>Register</button>
+        <form onSubmit = {handleRegister} className='register-form'>
+            <input className='register-text' type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input className='register-text' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input className='register-text' type="password" placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <button type='submit' className='register-button'>Register</button>
         </form>
         {/* link to login page */}
         <p>Already have an account?{' '}<span className='link' onClick={toggle}>Login</span></p>
