@@ -11,7 +11,8 @@ const Todo = () => {
 
   const fetchTodos = useCallback(async (token) => {
     try{
-      const response = await fetch('http://localhost:3000/tasks', {
+      // const response = await fetch('http://localhost:3000/tasks', {
+      const response = await fetch('https://todoapp-u9ns.onrender.com/tasks', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -43,7 +44,7 @@ const Todo = () => {
   const addTodo = async(text) => {
     const token = localStorage.getItem('token');
     try{
-      const response = await fetch('http://localhost:3000/tasks', {
+      const response = await fetch('https://todoapp-u9ns.onrender.com/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +66,7 @@ const Todo = () => {
   const toggleTodo = async (id, currentCompletion) => {
     const token = localStorage.getItem('token');
     try{
-      const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const response = await fetch(`https://todoapp-u9ns.onrender.com/tasks/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +88,7 @@ const Todo = () => {
   const editTodo = async (taskId, newText) => {
     const token = localStorage.getItem('token');
     try{
-      const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+      const response = await fetch(`https://todoapp-u9ns.onrender.com/tasks/${taskId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +112,7 @@ const Todo = () => {
   const deleteTodo = async (taskId) => {
     const token = localStorage.getItem('token');
     try{
-      const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+      const response = await fetch(`https://todoapp-u9ns.onrender.com/tasks/${taskId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const userRoutes = require('./routes/user'); // import user routes
 const taskRoutes = require('./routes/task'); // import task routes
 
-app.use(cors()); // enable 
+app.use(cors({origin: 'https://jdl15.github.io'}));
 app.use(express.json());
 // load the environment variables
 require('dotenv').config();
