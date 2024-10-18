@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const userRoutes = require('./routes/user'); // import user routes
 const taskRoutes = require('./routes/task'); // import task routes
 
-app.use(cors({origin: 'https://jdl15.github.io',
+app.use(cors({origin: 'https://jdl15.github.io/todo',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
