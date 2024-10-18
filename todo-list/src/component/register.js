@@ -17,7 +17,7 @@ const Register = ({ onRegister, toggle }) => {
 
         // send request to server
         try{
-            const response = await fetch('http://localhost:3000/user/register', {
+            const response = await fetch('https://todoapp-u9ns.onrender.com/user/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
