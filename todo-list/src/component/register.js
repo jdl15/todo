@@ -24,12 +24,14 @@ const Register = ({ onRegister, toggle }) => {
             });
 
             const data = await response.json();
+            console.log('Register Date: ', data)
             if(response.ok){
                 onRegister();
                 alert('Registration successful');
             }
             else{
-                alert('Registration failed: ' + data.message);
+                const errorMessage = data.message || 'Unknown error occurred';
+                alert('Registration failed: ' + errorMessage);
             }
         } catch(error){
             console.error('Error:', error);
